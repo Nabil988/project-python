@@ -1,5 +1,5 @@
 import os
-from dotenv import load_dotenv # Used to load environment variables securely (like your Spotify API credentials).
+from dotenv import load_dotenv
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
@@ -26,7 +26,7 @@ def get_track_id(song_name):
 
 # Get the user ID
 try:
-    user_id = sp.current_user()["id"] # Retrieves the Spotify user ID of the authenticated account.
+    user_id = sp.current_user()["id"]
 except spotipy.exceptions.SpotifyException as e:
     print(f"❌ Error fetching user info: {e}")
     exit()
@@ -52,7 +52,7 @@ while True:
 # Add the tracks to the playlist
 if track_ids:
     try:
-        sp.playlist_add_items(playlist_id, track_ids) # Adds the collected track IDs to the newly created playlist.
+        sp.playlist_add_items(playlist_id, track_ids) 
         print(f"✅ Playlist '{playlist_name}' created and tracks added!") 
         print(f"🔗 Playlist URL: {playlist['external_urls']['spotify']}")
     except Exception as e:
